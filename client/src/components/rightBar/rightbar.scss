@@ -1,0 +1,110 @@
+@import "../../style.scss";
+
+.rightbar {
+    @include themify($themes) {
+        flex: 3;
+        position: sticky;
+        z-index: 999;
+        top: 70px;
+        height: calc(100vh - 71px);
+        overflow: scroll;
+        background-color: themed("bgSoft");
+
+        @include mobile {
+            display: none;
+        }
+
+        @include tablet {
+            display: none;
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .container {
+            padding: 20px;
+
+            .item {
+                -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.075);
+                -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.075);
+                box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.075);
+                padding: 20px;
+                margin-bottom: 20px;
+                background-color: themed("bg");
+
+                span {
+                    color: gray;
+                    color: themed("textColorSoft");
+                }
+
+                .user {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin: 20px 0px;
+
+                    .uInfo {
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+                        position: relative;
+
+                        img {
+                            width: 40px;
+                            height: 40px;
+                            object-fit: cover;
+                            border-radius: 50%;
+                        }
+
+                        .online {
+                            width: 12px;
+                            height: 12px;
+                            border-radius: 50%;
+                            background-color: #45FFCA;
+                            position: absolute;
+                            top: -1px;
+                            left: 26px;
+                        }
+
+                        p {
+                            color: themed('textColorSoft');
+
+                            span {
+                                margin-right: 10px;
+                                color: themed('textColor');
+                            }
+                        }
+
+                        span {
+                            font-weight: 500;
+                            color: themed("textColor");
+                        }
+                    }
+
+                    .buttons {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+
+                        button {
+                            border: none;
+                            padding: 5px;
+                            color: white;
+                            cursor: pointer;
+                            border-radius: 5px;
+
+                            &:first-child {
+                                background-color: #5271ff;
+                            }
+
+                            &:last-child {
+                                background-color: #f0544f;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

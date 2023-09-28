@@ -45,7 +45,7 @@ export const login = (req, res) => {
             httpOnly: true,
         })
         .status(200)
-        .json(userInfo);
+        .json({userInfo, token});
     });
 };
 

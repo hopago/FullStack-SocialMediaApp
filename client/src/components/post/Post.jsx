@@ -4,9 +4,10 @@ import './post.scss';
 import { useQuery } from '@tanstack/react-query';
 
 
-const Post = () => {
+const Post = ({ userId }) => {
+
   const { isLoading, error, data } = useQuery(["posts"], () =>
-    authReq.get("/posts").then((res) => {
+    authReq.get("/posts?userId="+userId).then((res) => {
       return res.data;
     })
   );
@@ -14,7 +15,7 @@ const Post = () => {
   return (
     <div className="posts">
       {error
-        ? "Fetch Post Error..."
+        ? "Fetching Posts Error..."
         : isLoading
         ? "loading..."
         : data.map((post) => <SinglePost key={post.id} post={post} />)}
